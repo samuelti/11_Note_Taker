@@ -10,14 +10,15 @@ router.get('/notes',(req, res)=>{
 
 //post route
 router.post('/notes',(req, res)=>{
-    db.saveNotes().then((notes)=>{
-        return req.json(notes);
+    db.saveNotes(req.body).then((notes)=>{
+      res.json(notes);
     }).catch(err=> res.status(500).json(err))
 })
 //delete route
-router.delete('/notes',(req, res)=>{
-    db.deleteNotes().then((notes)=>{
-        return req.json(notes);
+router.delete('/notes/:id', (req, res)=>{
+    db.deleteNotes(req.params.id)
+    .then(()=>{
+         res.json({ ok:true});
     }).catch(err=> res.status(500).json(err))
 })
 
