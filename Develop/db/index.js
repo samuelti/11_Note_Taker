@@ -1,6 +1,6 @@
 const fs = require('fs');
 const util = require('util');
-//const uuid = require('uuid/v1');
+const uuid = require('uuid/v1');
 const read = util.promisify(fs.readFile);
 const write = util.promisify(fs.writeFile);
 
@@ -37,7 +37,14 @@ class Functions {
         
     }
     //delete note function
-
+    deleteNotes(){
+        return this.deleteNotes().then((c)=>{
+            let notes;
+            try{
+                notes=
+            }
+        })
+    }
 
 }
 

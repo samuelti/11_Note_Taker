@@ -10,13 +10,15 @@ router.get('/notes',(req, res)=>{
 
 //post route
 router.post('/notes',(req, res)=>{
-    db.getNotes().then((notes)=>{
+    db.saveNotes().then((notes)=>{
         return req.json(notes);
     }).catch(err=> res.status(500).json(err))
 })
 //delete route
 router.delete('/notes',(req, res)=>{
-    db.
-});
+    db.deleteNotes().then((notes)=>{
+        return req.json(notes);
+    }).catch(err=> res.status(500).json(err))
+})
 
 module.exports = router;
